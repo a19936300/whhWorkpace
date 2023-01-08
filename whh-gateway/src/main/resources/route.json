@@ -1,0 +1,22 @@
+[
+  {
+    "id": "whh-base",
+    "uri": "lb://whh-base/",
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "Path": "/base/**"
+        }
+      }
+    ],
+    "filters": [
+      {
+        "name": "StripPrefix",
+        "args": {
+          "StripPrefix": 0
+        }
+      }
+    ]
+  }
+]

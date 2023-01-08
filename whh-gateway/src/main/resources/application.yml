@@ -1,0 +1,72 @@
+server:
+  port: 31001
+  servlet:
+    session:
+      cookie:
+        http-only: true
+
+spring:
+  application:
+    name: whh-gateway
+  cloud:
+    gateway:
+      #enabled: true
+      discovery:
+        locator:
+          enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    # 重点在这里,默认为false,所以没有gateway相关端点,打开后就可以访问
+    gateway:
+      enabled: true
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 9
+    lease-renewal-interval-in-seconds: 3
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://admin:admin123456@127.0.0.1:20000/eureka
+      #defaultZone: http://admin:admin123456@29.23.3.44/eureka
+
+#????
+logging:
+  config: classpath:logback-spring.xml
+  #level:
+  #org.springframework.cloud.gateway: debug
+#??ribbon,??ribbon??
+ribbon:
+  ConnectTimeout: 50000 #????????? ?????? 1 ?
+  ReadTimeout: 50000  #?????????
+  MaxAutoRetriesNextServer: 0 #???????
+#feignClient??
+feign:
+  httpclient:
+    enabled: true
+    connection-timeout: 50000
+  hystrix:
+    enabled: true #??feign??
+#hystrix??????????
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 100000
+#???????????
+hystrix.command.hystrixGateway.execution.isolation.thread.timeoutInMilliseconds: 50000
+#??hystrix?????
+hystrix.threadpool.default.coreSize: 50 #?????
+hystrix.threadpool.default.maxQueueSize: 1000  #?????
+hystrix.threadpool.default.queueSizeRejectionThreshold: 800 #??????
+hystrix.command.default.execution.timeout.enabled: false
+#hystrix.command.default.execution.isolation.strategy: THREAD  #?????????
+#?????
+hystrix.command.default.execution.isolation.semaphore.maxConcurrentRequests: 1000 #?????????
+hystrix.command.hystrixGateway.execution.isolation.semaphore.maxConcurrentRequests: 1000
+isNeedValidUrl: false
+
