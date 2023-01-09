@@ -1,14 +1,14 @@
 package com.binbinxiu.whh.gateway.security.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * @Author wzd
  */
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class JwtParent {
-
-    protected long time;
+    private long time;
 }

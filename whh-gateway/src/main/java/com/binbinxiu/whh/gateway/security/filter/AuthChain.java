@@ -2,6 +2,7 @@ package com.binbinxiu.whh.gateway.security.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -32,7 +33,8 @@ public class AuthChain<T> {
     public Mono<Void> doFilter(T alarm, GatewayFilterChain gatewayFilterChain, AuthChain chain) {
         AuthFilter filter = filters.poll();
         if (filter == null) {
-            return Mono.empty();
+            //return Mono.empty();
+            return gatewayFilterChain.filter((ServerWebExchange) alarm);
         }
         //判断当前的链是否需要中断
         return filter.execute(alarm, gatewayFilterChain, chain);

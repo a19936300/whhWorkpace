@@ -1,7 +1,6 @@
 package com.binbinxiu.whh.gateway.security.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 /**
@@ -9,22 +8,17 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@NoArgsConstructor
 public class JwtModel extends JwtParent{
 
     private String id;
 
     private String userName;
 
-    public JwtModel(){}
-
-    public JwtModel(String id, String userName) {
-        this.id = id;
-        this.userName = userName;
-    }
-
+    @Builder(toBuilder = true)
     public JwtModel(String id, String userName, long time) {
+        super(time);
         this.id = id;
         this.userName = userName;
-        this.time = time;
     }
 }
