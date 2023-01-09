@@ -1,5 +1,5 @@
 server:
-  port: 31002
+  port: 41002
   servlet:
     context-path: /base
 spring:
@@ -31,7 +31,7 @@ eureka:
     fetch-registry: true
     service-url:
       #defaultZone: http://127.0.0.1:8151/eureka
-      defaultZone: http://admin:admin123456@127.0.0.1:20000/eureka
+      defaultZone: http://admin:admin123456@127.0.0.1:30000/eureka
       #defaultZone: http://admin:admin123456@29.23.3.44/eureka
 logging:
   config: classpath:logback-spring.xml

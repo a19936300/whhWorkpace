@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>whh-api</name>
     <description>whh-api</description>
+    <packaging>pom</packaging>
     <properties>
         <java.version>17</java.version>
         <spring.version>6.0.3</spring.version>
@@ -49,14 +50,5 @@
         </dependency>
 
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

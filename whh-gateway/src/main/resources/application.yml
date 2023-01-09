@@ -1,5 +1,5 @@
 server:
-  port: 31001
+  port: 41001
   servlet:
     session:
       cookie:
@@ -35,7 +35,7 @@ eureka:
   client:
     fetch-registry: true
     service-url:
-      defaultZone: http://admin:admin123456@127.0.0.1:20000/eureka
+      defaultZone: http://admin:admin123456@127.0.0.1:30000/eureka
       #defaultZone: http://admin:admin123456@29.23.3.44/eureka
 
 #????
