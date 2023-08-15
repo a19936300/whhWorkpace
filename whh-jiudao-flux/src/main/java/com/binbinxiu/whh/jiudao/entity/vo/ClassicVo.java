@@ -1,11 +1,9 @@
-package com.binbinxiu.whh.jiudao.entity;
+package com.binbinxiu.whh.jiudao.entity.vo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.binbinxiu.whh.jiudao.config.BaseEntity;
-import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 /**
  * <p>
@@ -15,15 +13,11 @@ import lombok.ToString;
  * @author binbin
  * @since 2023-07-25
  */
+
 @Getter
 @Setter
-@TableName("t_classic")
-@ToString
-public class Classic extends BaseEntity {
-
-    private static final long serialVersionUID = 1L;
-
-    protected Long oldId;
+public class ClassicVo {
+    private Long id;
 
     private Integer favNums;
 
@@ -31,7 +25,9 @@ public class Classic extends BaseEntity {
 
     private String image;
 
-    private Integer classicIndex;
+    private Integer index;
+
+    private Integer likeStatus;
 
     private String pubdate;
 

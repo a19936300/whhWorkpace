@@ -16,17 +16,15 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("t_user_classic")
-public class UserClassic extends BaseEntity {
+@TableName("t_user")
+public class User extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    private Long userId;
+    private String userName;
 
-    private Long classicId;
+    private String passWord;
 
-    private Integer isFav;
-
-    private Integer type;
+    private String nickName;
 
 }

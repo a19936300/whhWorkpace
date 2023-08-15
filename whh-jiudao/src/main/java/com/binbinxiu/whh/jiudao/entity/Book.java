@@ -12,21 +12,22 @@ import lombok.Setter;
  * </p>
  *
  * @author binbin
- * @since 2023-07-25
+ * @since 2023-08-04
  */
 @Getter
 @Setter
-@TableName("t_user_classic")
-public class UserClassic extends BaseEntity {
+@TableName("t_book")
+public class Book extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    private Long userId;
+    private String author;
 
-    private Long classicId;
+    private Integer favNums;
 
-    private Integer isFav;
+    private String image;
 
-    private Integer type;
+    private String title;
 
+    private Long oldId;
 }

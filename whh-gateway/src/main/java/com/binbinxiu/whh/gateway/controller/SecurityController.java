@@ -121,7 +121,7 @@ public class SecurityController {
                     if (!user.getPassword().equals(encryptPwd)) {
                         throw new BadCredentialsException("you have no Credentials");
                     }
-                    JwtModel model = new JwtModel(String.valueOf(user.getId()), user.getHandlerCode());
+                    JwtModel model = JwtModel.builder().id(String.valueOf(user.getId())).userName(user.getHandlerCode()).build();
                     jwt = JwtUtil.createJWT(model, TokenTime.tokenExpTime);
                     /*
                      * 20221021 caozy

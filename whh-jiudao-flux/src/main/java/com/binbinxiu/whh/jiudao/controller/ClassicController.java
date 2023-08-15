@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
 
@@ -39,7 +40,7 @@ public class ClassicController {
      * 获取最新一期
      */
     @GetMapping("/latest")
-    public ClassicVo latest(){
+    public Mono<ClassicVo> latest(){
         Classic one= classicService.lambdaQuery().orderByDesc(Classic::getClassicIndex).last("LIMIT 1").one();
         ClassicVo classicVo = new ClassicVo();
         BeanUtils.copyProperties(one,classicVo);
@@ -53,7 +54,7 @@ public class ClassicController {
                 .one();
         classicVo.setLikeStatus(userClassic == null?0:userClassic.getIsFav());
 
-        return classicVo;
+        return Mono.just(classicVo);
     }
 
     /**

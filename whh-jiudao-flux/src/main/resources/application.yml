@@ -1,0 +1,14 @@
+server:
+  port: 31001
+spring:
+  application:
+    name: whh-jiudao
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite://C:/Users/binbin/OneDrive/1项目project/商业小程序学习/jiudou.db
+    usernname:
+    password:
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
