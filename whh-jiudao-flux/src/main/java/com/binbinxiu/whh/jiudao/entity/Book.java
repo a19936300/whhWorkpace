@@ -11,19 +11,22 @@ import org.springframework.data.relational.core.mapping.Table;
  * </p>
  *
  * @author binbin
- * @since 2023-07-25
+ * @since 2023-08-04
  */
 @Getter
 @Setter
-@Table("t_user")
-public class User extends BaseEntity {
+@Table("t_book")
+public class Book extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    private String userName;
+    private String author;
 
-    private String passWord;
+    private Integer favNums;
 
-    private String nickName;
+    private String image;
 
+    private String title;
+
+    private Long oldId;
 }

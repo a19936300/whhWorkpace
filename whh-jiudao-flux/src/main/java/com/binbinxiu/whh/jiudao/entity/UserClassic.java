@@ -15,15 +15,17 @@ import org.springframework.data.relational.core.mapping.Table;
  */
 @Getter
 @Setter
-@Table("t_user")
-public class User extends BaseEntity {
+@Table("t_user_classic")
+public class UserClassic extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    private String userName;
+    private Long userId;
 
-    private String passWord;
+    private Long classicId;
 
-    private String nickName;
+    private Integer isFav;
+
+    private Integer type;
 
 }
