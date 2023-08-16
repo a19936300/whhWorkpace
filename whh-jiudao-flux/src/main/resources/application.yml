@@ -3,12 +3,21 @@ server:
 spring:
   application:
     name: whh-jiudao
-  datasource:
-    driver-class-name: org.sqlite.JDBC
-    url: jdbc:sqlite://C:/Users/binbin/OneDrive/1项目project/商业小程序学习/jiudou.db
-    usernname:
-    password:
+  h2:
+    console:
+      enabled: true # 启用H2控制台，方便调式
+      path: /h2-console
+  r2dbc:
+    #url: r2dbc:h2:mem:///jiudaodb    # 使用内存模式的H2数据库
+    url: r2dbc:h2:file:///d:/WorkSpace/springworkspace/whhWorkpace/whh-jiudao-flux/jiudaodb/file    # 使用内存模式的H2数据库
+    driver: io.r2dbc.h2.H2ConnectionFactoryProvider
+    username: root
+    password: root
 
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 日志配置（可选）
+logging:
+  level:
+    root: info
+    org.springframework: info
+    # 配置其他类的日志级别
+

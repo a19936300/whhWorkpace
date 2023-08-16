@@ -1,7 +1,7 @@
 package com.binbinxiu.whh.jiudao.mapper;
 
 import com.binbinxiu.whh.jiudao.entity.User;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author binbin
  * @since 2023-07-25
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper extends ReactiveCrudRepository<User,Long> {
 
 }

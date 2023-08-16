@@ -2,9 +2,12 @@ package com.binbinxiu.whh.jiudao.service.impl;
 
 import com.binbinxiu.whh.jiudao.entity.User;
 import com.binbinxiu.whh.jiudao.mapper.UserMapper;
-import com.binbinxiu.whh.jiudao.service.IUserService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,6 +18,18 @@ import org.springframework.stereotype.Service;
  * @since 2023-07-25
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl implements CommandLineRunner {
 
+    @Autowired
+    private  UserMapper userMapper;
+
+
+    public Flux<User> getAll(){
+        return  userMapper.findAll();
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+
+    }
 }

@@ -1,10 +1,8 @@
 package com.binbinxiu.whh.jiudao.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.binbinxiu.whh.jiudao.config.BaseEntity;
-import java.io.Serializable;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 /**
  * <p>
@@ -14,17 +12,21 @@ import lombok.Setter;
  * @author binbin
  * @since 2023-07-25
  */
-@Getter
-@Setter
-@TableName("t_user")
-public class User extends BaseEntity {
+@Data
+@NoArgsConstructor
+@RequiredArgsConstructor
+@EqualsAndHashCode(exclude = "id")
+@Table("t_user")
+public class User{
 
     private static final long serialVersionUID = 1L;
 
-    private String userName;
+    @Id
+    private Long id;
+    private @NonNull String name;
 
-    private String passWord;
+    private @NonNull String password;
 
-    private String nickName;
+    private @NonNull String nickname;
 
 }
