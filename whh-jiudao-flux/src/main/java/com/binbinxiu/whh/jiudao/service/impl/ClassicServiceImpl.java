@@ -25,4 +25,19 @@ public class ClassicServiceImpl implements IClassicService {
     public Flux<Classic> latest() {
         return classicMapper.fetchIndexMax();
     }
+
+    @Override
+    public Flux<Classic> save() {
+        Classic classic = new Classic();
+        classic.setContent("這是真的");
+        classic.setImage("image");
+        classic.setId(2L);
+        classicMapper.save(classic);
+        return Flux.just(classic);
+    }
+
+    @Override
+    public Flux<Classic> findAll() {
+        return classicMapper.findAll();
+    }
 }

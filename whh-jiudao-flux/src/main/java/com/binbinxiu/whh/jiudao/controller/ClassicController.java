@@ -1,8 +1,10 @@
 package com.binbinxiu.whh.jiudao.controller;
 
 import com.binbinxiu.whh.jiudao.entity.Classic;
+import com.binbinxiu.whh.jiudao.entity.Ming;
 import com.binbinxiu.whh.jiudao.entity.UserClassic;
 import com.binbinxiu.whh.jiudao.entity.vo.ClassicVo;
+import com.binbinxiu.whh.jiudao.mapper.MingR2dbcRepository;
 import com.binbinxiu.whh.jiudao.service.IClassicService;
 import com.binbinxiu.whh.jiudao.service.IUserClassicService;
 import org.springframework.beans.BeanUtils;
@@ -32,12 +34,40 @@ public class ClassicController {
     @Autowired
     private IUserClassicService userClassicService;
 
+    @Autowired
+    private MingR2dbcRepository mingR2dbcRepository;
+
+    @GetMapping("/saveDataTest")
+    public void saveDataTest(){
+        Flux.range(1,5).map(id -> new Ming(id,"xingming:"+id))
+                .flatMap(mingR2dbcRepository::save);
+
+        mingR2dbcRepository.findAll()
+                .doOnNext(s -> {
+                    System.out.println("---------");
+                    System.out.println(s);
+                });
+
+    }
+
     /**
      * 获取最新一期
      */
     @GetMapping("/latest")
     public Flux<Classic> latest(){
         Flux<Classic> latest = classicService.latest();
+        return latest;
+    }
+
+    @GetMapping("/findAll")
+    public Flux<Classic> findAll(){
+        Flux<Classic> latest = classicService.findAll();
+        return latest;
+    }
+
+    @GetMapping("/save")
+    public Flux<Classic> save(){
+        Flux<Classic> latest = classicService.save();
         return latest;
     }
 //

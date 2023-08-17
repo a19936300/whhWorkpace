@@ -17,4 +17,8 @@ public interface IClassicService {
      * 获取最新一期期刊
      */
     Flux<Classic> latest();
+
+    Flux<Classic> save();
+
+    Flux<Classic> findAll();
 }
