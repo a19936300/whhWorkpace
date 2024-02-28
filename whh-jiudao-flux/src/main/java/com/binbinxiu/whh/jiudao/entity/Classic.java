@@ -38,7 +38,7 @@ public class Classic  {
 
 
     @Id
-    protected Long id;
+    protected Integer id;
 
     private Integer revision;
 

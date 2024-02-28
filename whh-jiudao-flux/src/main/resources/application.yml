@@ -9,8 +9,8 @@ spring:
       path: /h2-console
   r2dbc:
     #url: r2dbc:h2:mem:///jiudaodb    # 使用内存模式的H2数据库
-    url: r2dbc:h2:file:///f:/A-wangbinbin/WorkSpace/whhWorkpace/whh-jiudao-flux/jiudaodb/file;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE   # 使用内存模式的H2数据库
-    #F:\A-wangbinbin\workSpace\whhWorkpace\whh-jiudao-flux\jiudaodb
+    #url: r2dbc:h2:file:///f:/A-wangbinbin/WorkSpace/whhWorkpace/whh-jiudao-flux/jiudaodb/file;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE   # 使用内存模式的H2数据库
+    url: r2dbc:h2:file:///d:/WorkSpace/springworkspace/whhWorkpace/whh-jiudao-flux/jiudaodb/file    # 使用内存模式的H2数据库
     driver: io.r2dbc.h2.H2ConnectionFactoryProvider
     username: root
     password: root

@@ -54,10 +54,12 @@ COMMENT ON COLUMN t_classic.CREATED_TIME IS '创建时间';
 COMMENT ON COLUMN t_classic.UPDATED_BY IS '更新人';
 COMMENT ON COLUMN t_classic.UPDATED_TIME IS '更新时间';
 
+drop table t_user_classic;
 CREATE TABLE t_user_classic(
                                ID INT NOT NULL,
                                USER_ID VARCHAR2(255),
                                CLASSIC_ID VARCHAR2(255),
+                               type VARCHAR(32),
                                IS_FAV VARCHAR2(1),
                                REVISION INT,
                                CREATED_BY INT,
@@ -67,6 +69,7 @@ CREATE TABLE t_user_classic(
                                PRIMARY KEY (ID)
 );
 
+COMMENT ON COLUMN t_user_classic.type IS '类型';
 COMMENT ON TABLE t_user_classic IS '用户喜欢表';
 COMMENT ON COLUMN t_user_classic.ID IS 'id';
 COMMENT ON COLUMN t_user_classic.USER_ID IS '用户ID';

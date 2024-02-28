@@ -30,7 +30,7 @@ public class ClassicData {
     @Test
     public void test1(){
         Classic classic = new Classic();
-        classic.setId(1L);
+        classic.setId(1);
         classic.setContent("内存");
         classic.setPubdate(new Date());
         classic.setCreatedTime(new Date());
@@ -58,7 +58,7 @@ public class ClassicData {
             System.out.println(resString);
             JSONObject entries = JSONUtil.parseObj(resString);
             Classic classic = new Classic();
-            classic.setId(Long.valueOf(entries.getLong("id")));
+            classic.setId(Integer.valueOf(entries.getInt("id")));
             classic.setContent(entries.getStr("content"));
             classic.setFavNums(entries.getInt("fav_nums"));
             classic.setImage(entries.getStr("image"));
